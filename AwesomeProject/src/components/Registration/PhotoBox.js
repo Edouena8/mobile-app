@@ -5,10 +5,10 @@ export default function PhotoBox() {
 }
 
 const styles = StyleSheet.create({
-    box: {
-      position: 'absolute',
+  box: {
+    position: "absolute",
     width: 120,
-        height: 120,
+    height: 120,
     top: -60,
     backgroundColor: "#FFFFFF",
     borderWidth: 1,

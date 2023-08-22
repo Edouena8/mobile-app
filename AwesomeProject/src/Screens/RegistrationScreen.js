@@ -1,22 +1,26 @@
 import { StyleSheet, View, Text, Button, TextInput } from "react-native";
-import { gStyle } from "../../../styles/style";
-import RegForm from "../Registration/RegForm";
-import PhotoBox from "../Registration/PhotoBox";
-
-const image = require("../../../assets/images/bg-photo.png");
+import RegForm from "../components/Registration/RegForm";
+import PhotoBox from "../components/Registration/PhotoBox";
+import { Message } from "../components/Texts/Message";
 
 export default function RegistrationScreen() {
   return (
     <View style={styles.wrap}>
       <PhotoBox />
-      <Text style={gStyle.title}>Реєстрація</Text>
+      <Text style={styles.title}>Реєстрація</Text>
       <RegForm />
-      <Text style={styles.text}>Вже є акаунт? Увійти</Text>
+      <Message message="Вже є акаунт?" link="Увійти" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 30,
+    color: "#212121",
+    fontFamily: "roboto-med",
+    marginTop: 69, //60
+  },
   wrap: {
     height: "68%",
     padding: 16,
@@ -24,9 +28,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     backgroundColor: "#FFFFFF",
-  },
-  text: {
-    fontFamily: "roboto-reg",
-    color: "#1B4371",
   },
 });

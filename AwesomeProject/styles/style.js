@@ -6,5 +6,5 @@ export const gStyle = StyleSheet.create({
     color: "#212121",
     fontFamily: "roboto-med",
     marginTop: 50,
-  },
+  }, 
 });

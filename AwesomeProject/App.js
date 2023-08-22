@@ -1,6 +1,7 @@
 import { ImageBackground, StyleSheet, View, Text } from "react-native";
 import { useFonts } from "expo-font";
-import RegistrationScreen from "./src/components/Screens/RegistrationScreen";
+import RegistrationScreen from "./src/Screens/RegistrationScreen";
+import LoginScreen from "./src/Screens/LoginScreen";
 
 const image = require("./assets/images/bg-photo.png");
 
@@ -13,11 +14,12 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-  
+
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <RegistrationScreen />
+        {/* <LoginScreen /> */}
       </ImageBackground>
     </View>
   );
