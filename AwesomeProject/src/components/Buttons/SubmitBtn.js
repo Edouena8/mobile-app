@@ -1,4 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { colors } from "../../../utils/colors";
+const { accentColor, white } = colors;
 
 export const SubmitBtn = ({label}) => {
     return (
@@ -17,12 +19,12 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingLeft: 80,
     borderRadius: 100,
-    backgroundColor: "#FF6C00",
+    backgroundColor: accentColor,
   },
   btnText: {
     fontFamily: "roboto-reg",
     lineHeight: 19,
-    color: "#FFFFFF",
+    color: white,
     alignItems: "center",
   },
 });

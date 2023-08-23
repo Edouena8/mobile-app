@@ -1,9 +1,8 @@
-import {
-  StyleSheet,
-  View,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 import { StyledTextInput } from "../Inputs/StyledTextInput";
 import { SubmitBtn } from "../Buttons/SubmitBtn";
+import { colors } from "../../../utils/colors";
+const { borderColor } = colors;
 
 export default function LogForm() {
   return (
@@ -14,8 +13,8 @@ export default function LogForm() {
       />
       <StyledTextInput
         style={{ paddingRight: 100, marginTop: 16 }}
-              placeholder="Пароль"
-              isPassword={true}
+        placeholder="Пароль"
+        isPassword={true}
       />
       <SubmitBtn label="Увійти" />
     </View>
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 10,
-    borderColor: "#E8E8E8",
+    borderColor: borderColor,
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 8,

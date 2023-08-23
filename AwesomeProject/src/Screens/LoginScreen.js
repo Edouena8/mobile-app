@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 import LogForm from "../components/Login/LogForm";
 import { Message } from "../components/Texts/Message";
+import { colors } from "../../utils/colors";
+const {primaryTextColor, additionalTextColor, white } = colors;
 
 export default function LoginScreen() {
   return (
@@ -21,17 +23,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: white,
   },
   title: {
     fontSize: 30,
-    color: "#212121",
+    color: primaryTextColor,
     fontFamily: "roboto-med",
     marginTop: 32,
   },
   text: {
     marginTop: 16,
     fontFamily: "roboto-reg",
-    color: "#1B4371",
+    color: additionalTextColor,
   },
 });

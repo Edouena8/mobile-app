@@ -1,4 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { colors } from "../../../utils/colors";
+const { additionalTextColor } = colors;
 
 export const Message = ({ message, link }) => {
   return (
@@ -22,6 +24,6 @@ const styles = StyleSheet.create({
 
   text: {
     fontFamily: "roboto-reg",
-    color: "#1B4371",
+    color: additionalTextColor,
   },
 });

@@ -6,17 +6,21 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { colors } from "../../../utils/colors";
+
+const { borderColor, accentColor, additionalTextColor, placeholderTextColor } =
+  colors;
 
 export const StyledTextInput = ({ isPassword, ...props }) => {
-  const [inputBorderColor, setInputBorderColor] = useState("#E8E8E8");
+  const [inputBorderColor, setInputBorderColor] = useState(borderColor);
   const [hidePassword, setHidePassword] = useState(true);
 
   const customOnBlur = () => {
-    setInputBorderColor("#E8E8E8");
+    setInputBorderColor(borderColor);
   };
 
   const customOnFocus = () => {
-    setInputBorderColor("#FF6C00");
+    setInputBorderColor(accentColor);
   };
 
   return (
@@ -24,8 +28,8 @@ export const StyledTextInput = ({ isPassword, ...props }) => {
       <TextInput
         {...props}
         style={[styles.input, props?.style, { borderColor: inputBorderColor }]}
-        placeholderTextColor="#BDBDBD"
-        cursorColor="#BDBDBD"
+        placeholderTextColor={placeholderTextColor}
+        cursorColor={placeholderTextColor}
         onBlur={customOnBlur}
         onFocus={customOnFocus}
         secureTextEntry={isPassword && hidePassword}
@@ -50,7 +54,7 @@ export const StyledTextInput = ({ isPassword, ...props }) => {
 const styles = StyleSheet.create({
   input: {
     padding: 10,
-    borderColor: "#E8E8E8",
+    borderColor: borderColor,
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 8,
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
   showText: {
     fontFamily: "roboto-reg",
     lineHeight: 19,
-    color: "#1B4371",
+    color: additionalTextColor,
     textAlign: "right",
   },
 });
