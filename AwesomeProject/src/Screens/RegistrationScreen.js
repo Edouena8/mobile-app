@@ -1,20 +1,14 @@
-import {
-  StyleSheet,
-  View,
-  Text
-} from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import RegForm from "../components/Registration/RegForm";
 import PhotoBox from "../components/Registration/PhotoBox";
 import { Message } from "../components/Texts/Message";
-import { AddIcon } from "../components/Icon/AddIcon";
 import { colors } from "../../utils/colors";
-const { primaryTextColor, white } = colors;
+const { primaryTextColor, white, userBorder } = colors;
 
 export default function RegistrationScreen() {
   return (
     <View style={styles.wrap}>
       <PhotoBox />
-      <AddIcon />
 
       <Text style={styles.title}>Реєстрація</Text>
       <RegForm />
@@ -31,9 +25,11 @@ const styles = StyleSheet.create({
     marginTop: 69, //60
   },
   wrap: {
-    height: "68%",
     padding: 16,
     alignItems: "center",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: userBorder,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     backgroundColor: white,

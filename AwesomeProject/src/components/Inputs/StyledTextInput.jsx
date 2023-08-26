@@ -8,30 +8,44 @@ import {
 } from "react-native";
 import { colors } from "../../../utils/colors";
 
-const { borderColor, accentColor, additionalTextColor, placeholderTextColor } =
-  colors;
+const {
+  borderColor,
+  accentColor,
+  additionalTextColor,
+  placeholderTextColor,
+  secondaryBg,
+  primaryBg,
+} = colors;
 
 export const StyledTextInput = ({ isPassword, ...props }) => {
-  const [inputBorderColor, setInputBorderColor] = useState(borderColor);
   const [hidePassword, setHidePassword] = useState(true);
+  const [active, setActive] = useState(false);
 
-  const customOnBlur = () => {
-    setInputBorderColor(borderColor);
-  };
+  // const customOnBlur = () => {
+  //   setActive(false);
+  // };
 
-  const customOnFocus = () => {
-    setInputBorderColor(accentColor);
-  };
+  // const customOnFocus = () => {
+  //   setActive(true);
+  // };
+
+  const toggleInput = () => {
+    setActive(active => !active);
+  }
 
   return (
-    <View>
+    <View style={styles.container}>
       <TextInput
         {...props}
-        style={[styles.input, props?.style, { borderColor: inputBorderColor }]}
+        style={[
+          styles.input,
+          props?.style,
+          active ? styles.onFocus : styles.onBlur
+        ]}
         placeholderTextColor={placeholderTextColor}
         cursorColor={placeholderTextColor}
-        onBlur={customOnBlur}
-        onFocus={customOnFocus}
+        onBlur={toggleInput}
+        onFocus={toggleInput}
         secureTextEntry={isPassword && hidePassword}
       />
 
@@ -54,7 +68,7 @@ export const StyledTextInput = ({ isPassword, ...props }) => {
 const styles = StyleSheet.create({
   input: {
     padding: 10,
-    borderColor: borderColor,
+    marginTop: 16,
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 8,
@@ -62,13 +76,21 @@ const styles = StyleSheet.create({
 
   showPasswordWrap: {
     position: "absolute",
-    top: 28,
-    right: 10,
+    top: "42%",
+    right: "3%",
   },
   showText: {
     fontFamily: "roboto-reg",
     lineHeight: 19,
     color: additionalTextColor,
-    textAlign: "right",
+    textAlign: "center",
+  },
+  onBlur: {
+    borderColor: borderColor,
+    backgroundColor: secondaryBg,
+  },
+  onFocus: {
+    borderColor: accentColor,
+    backgroundColor: primaryBg,
   },
 });

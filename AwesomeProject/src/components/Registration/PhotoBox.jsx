@@ -1,10 +1,12 @@
 import { StyleSheet, View } from "react-native";
+import { AddIcon } from "../Icon/AddIcon";
 import { colors } from "../../../utils/colors";
-
-const { white } = colors;
+const { secondaryBg } = colors;
 
 export default function PhotoBox() {
-  return <View style={styles.box} />;
+  return <View style={styles.box}>
+    <AddIcon/>
+  </View>;
 }
 
 const styles = StyleSheet.create({
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     top: -60,
-    backgroundColor: white,
     borderRadius: 16,
+    backgroundColor: secondaryBg,
   },
 });

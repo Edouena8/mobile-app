@@ -34,7 +34,7 @@ export const AddIcon = () => {
 const styles = StyleSheet.create({
   icon: {
     position: "absolute",
-    top: 20,
-    left: 220,
+    top: 79,
+    left: 108,
   },
 });

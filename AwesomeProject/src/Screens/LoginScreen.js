@@ -17,9 +17,9 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   wrap: {
-    height: "60%",
     paddingLeft: 16,
     paddingRight: 16,
+    paddingBottom: 32,
     alignItems: "center",
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,

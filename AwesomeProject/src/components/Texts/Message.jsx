@@ -4,10 +4,11 @@ const { additionalTextColor } = colors;
 
 export const Message = ({ message, link }) => {
   return (
-    <View style={styles.wrap}>
-      <Text style={styles.text}>{message}</Text>
-      <TouchableOpacity>
-        <Text style={[styles.text, { textDecorationLine: "underline" }]}>
+    <View>
+      <TouchableOpacity style={styles.wrap}>
+        <Text style={styles.text}>{message}</Text>
+
+        <Text style={ styles.span}>
           {link}
         </Text>
       </TouchableOpacity>
@@ -25,5 +26,11 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "roboto-reg",
     color: additionalTextColor,
+  },
+
+  span: {
+    fontFamily: "roboto-reg",
+    color: additionalTextColor,
+    textDecorationLine: "underline",
   },
 });

@@ -1,18 +1,17 @@
 import { StyleSheet, View } from "react-native";
 import { StyledTextInput } from "../Inputs/StyledTextInput";
 import { SubmitBtn } from "../Buttons/SubmitBtn";
-import { colors } from "../../../utils/colors";
-const { borderColor } = colors;
 
 export default function LogForm() {
   return (
     <View style={styles.formWrap}>
       <StyledTextInput
+        style={styles.inputTop}
         inputMode="email"
         placeholder="Адреса електронної пошти"
       />
       <StyledTextInput
-        style={{ paddingRight: 100, marginTop: 16 }}
+        style={styles.passwordInput}
         placeholder="Пароль"
         isPassword={true}
       />
@@ -24,14 +23,12 @@ export default function LogForm() {
 const styles = StyleSheet.create({
   formWrap: {
     width: "100%",
-    marginTop: 32,
     justifyContent: "center",
   },
-  input: {
-    padding: 10,
-    borderColor: borderColor,
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderRadius: 8,
+  inputTop: {
+    marginTop: 32,
+  },
+  passwordInput: {
+    paddingRight: 100,
   },
 });
