@@ -2,9 +2,9 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { colors } from "../../../utils/colors";
 const { accentColor, white } = colors;
 
-export const SubmitBtn = ({label}) => {
+export const SubmitBtn = ({label, onSubmit}) => {
     return (
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={onSubmit}>
         <Text style={styles.btnText}>{label}</Text>
       </TouchableOpacity>
     );
@@ -13,7 +13,7 @@ export const SubmitBtn = ({label}) => {
 const styles = StyleSheet.create({
   btn: {
     alignItems: "center",
-    marginTop: 43,
+    marginTop: 37,
     paddingTop: 16,
     paddingRight: 80,
     paddingBottom: 16,

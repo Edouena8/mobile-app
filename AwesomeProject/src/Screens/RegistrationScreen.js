@@ -1,19 +1,24 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, KeyboardAvoidingView } from "react-native";
 import RegForm from "../components/Registration/RegForm";
 import PhotoBox from "../components/Registration/PhotoBox";
 import { Message } from "../components/Texts/Message";
 import { colors } from "../../utils/colors";
-const { primaryTextColor, white, userBorder } = colors;
+const { primaryTextColor, white } = colors;
 
 export default function RegistrationScreen() {
   return (
-    <View style={styles.wrap}>
-      <PhotoBox />
+    <KeyboardAvoidingView
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={-140}
+    >
+      <View style={styles.wrap}>
+        <PhotoBox />
 
-      <Text style={styles.title}>Реєстрація</Text>
-      <RegForm />
-      <Message message="Вже є акаунт?" link="Увійти" />
-    </View>
+        <Text style={styles.title}>Реєстрація</Text>
+        <RegForm />
+        <Message message="Вже є акаунт?" link="Увійти" />
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -27,9 +32,6 @@ const styles = StyleSheet.create({
   wrap: {
     padding: 16,
     alignItems: "center",
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderColor: userBorder,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     backgroundColor: white,

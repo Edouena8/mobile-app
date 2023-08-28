@@ -1,17 +1,26 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import LogForm from "../components/Login/LogForm";
 import { Message } from "../components/Texts/Message";
 import { colors } from "../../utils/colors";
-const {primaryTextColor, additionalTextColor, white } = colors;
+const { primaryTextColor, additionalTextColor, white } = colors;
 
 export default function LoginScreen() {
   return (
-    <View style={styles.wrap}>
-      <Text style={styles.title}>Увійти</Text>
-      <LogForm />
-
-      <Message message="Немає акаунту?" link="Зареєструватися"/>
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={-520}
+    >
+        <View style={styles.wrap}>
+          <Text style={styles.title}>Увійти</Text>
+          <LogForm />
+          <Message message="Немає акаунту?" link="Зареєструватися" />
+        </View>
+    </KeyboardAvoidingView>
   );
 }
 

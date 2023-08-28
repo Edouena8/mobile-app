@@ -17,21 +17,13 @@ const {
   primaryBg,
 } = colors;
 
-export const StyledTextInput = ({ isPassword, ...props }) => {
+export const StyledTextInput = ({ isPassword, value, onChange, ...props }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [active, setActive] = useState(false);
 
-  // const customOnBlur = () => {
-  //   setActive(false);
-  // };
-
-  // const customOnFocus = () => {
-  //   setActive(true);
-  // };
-
   const toggleInput = () => {
-    setActive(active => !active);
-  }
+    setActive((active) => !active);
+  };
 
   return (
     <View style={styles.container}>
@@ -40,13 +32,15 @@ export const StyledTextInput = ({ isPassword, ...props }) => {
         style={[
           styles.input,
           props?.style,
-          active ? styles.onFocus : styles.onBlur
+          active ? styles.onFocus : styles.onBlur,
         ]}
         placeholderTextColor={placeholderTextColor}
         cursorColor={placeholderTextColor}
         onBlur={toggleInput}
         onFocus={toggleInput}
         secureTextEntry={isPassword && hidePassword}
+        value={value}
+        onChangeText={onChange}
       />
 
       {isPassword && (
@@ -66,9 +60,11 @@ export const StyledTextInput = ({ isPassword, ...props }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+  },
   input: {
     padding: 10,
-    marginTop: 16,
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 8,
@@ -76,7 +72,6 @@ const styles = StyleSheet.create({
 
   showPasswordWrap: {
     position: "absolute",
-    top: "42%",
     right: "3%",
   },
   showText: {
