@@ -4,9 +4,11 @@ import { colors } from "../../../utils/colors";
 const { secondaryBg } = colors;
 
 export default function PhotoBox() {
-  return <View style={styles.box}>
-    <AddIcon/>
-  </View>;
+  return (
+    <View style={styles.box}>
+      <AddIcon/>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

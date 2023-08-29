@@ -1,4 +1,4 @@
-import {  StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { StyledTextInput } from "../Inputs/StyledTextInput";
 import { SubmitBtn } from "../Buttons/SubmitBtn";
 import { useState } from "react";
@@ -9,6 +9,9 @@ export default function RegForm() {
   const [password, setPassword] = useState("");
 
   const onSingup = () => {
+    setLogin("");
+    setEmail("");
+    setPassword("");
     console.log(`login: ${login}, email: ${email}, password: ${password}`);
   };
 

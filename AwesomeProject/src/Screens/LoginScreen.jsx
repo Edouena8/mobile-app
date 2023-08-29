@@ -1,7 +1,9 @@
 import {
+  Keyboard,
   KeyboardAvoidingView,
   StyleSheet,
   Text,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import LogForm from "../components/Login/LogForm";
@@ -11,16 +13,18 @@ const { primaryTextColor, additionalTextColor, white } = colors;
 
 export default function LoginScreen() {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS == "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={-520}
-    >
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS == "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={-520}
+      >
         <View style={styles.wrap}>
           <Text style={styles.title}>Увійти</Text>
           <LogForm />
           <Message message="Немає акаунту?" link="Зареєструватися" />
         </View>
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 }
 

@@ -8,10 +8,13 @@ export default function LogForm() {
   const [password, setPassword] = useState("");
 
   const onLogin = () => {
-    console.log(`email: ${email}, password${password}`);
+    setEmail("");
+    setPassword("");
+    console.log(`email: ${email}, password: ${password}`);
   };
 
   return (
+    
     <View style={styles.formWrap}>
       <StyledTextInput
         style={styles.inputTop}
