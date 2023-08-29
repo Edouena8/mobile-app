@@ -1,4 +1,11 @@
-import { StyleSheet, View, Text, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import RegForm from "../components/Registration/RegForm";
 import PhotoBox from "../components/Registration/PhotoBox";
 import { Message } from "../components/Texts/Message";
@@ -14,7 +21,6 @@ export default function RegistrationScreen() {
       >
         <View style={styles.wrap}>
           <PhotoBox />
-
           <Text style={styles.title}>Реєстрація</Text>
           <RegForm />
           <Message message="Вже є акаунт?" link="Увійти" />
