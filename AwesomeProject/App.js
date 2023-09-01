@@ -1,4 +1,11 @@
-import { ImageBackground, StyleSheet, View } from "react-native";
+import {
+  ImageBackground,
+  Keyboard,
+  KeyboardAvoidingView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import { useFonts } from "expo-font";
 import RegistrationScreen from "./src/Screens/RegistrationScreen";
 import LoginScreen from "./src/Screens/LoginScreen";
@@ -17,10 +24,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <RegistrationScreen />
-        {/* <LoginScreen /> */}
-      </ImageBackground>
+      <RegistrationScreen />
+      {/* <LoginScreen /> */}
     </View>
   );
 }
@@ -32,5 +37,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "flex-end",
+    width: "100%",
   },
 });

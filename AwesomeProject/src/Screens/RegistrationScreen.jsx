@@ -10,20 +10,26 @@ import RegForm from "../components/Registration/RegForm";
 import PhotoBox from "../components/Registration/PhotoBox";
 import { Message } from "../components/Texts/Message";
 import { colors } from "../../utils/colors";
+import { Background } from "../components/Images/Background";
 const { primaryTextColor, white } = colors;
 
 export default function RegistrationScreen() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
+        style={styles.container}
         behavior={Platform.OS == "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={-140}
+        keyboardVerticalOffset={-120}
       >
-        <View style={styles.wrap}>
-          <PhotoBox />
-          <Text style={styles.title}>Реєстрація</Text>
-          <RegForm />
-          <Message message="Вже є акаунт?" link="Увійти" />
+        <View style={styles.container}>
+          <Background>
+            <View style={styles.wrap}>
+              <PhotoBox />
+              <Text style={styles.title}>Реєстрація</Text>
+              <RegForm />
+              <Message message="Вже є акаунт?" link="Увійти" />
+            </View>
+          </Background>
         </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
@@ -31,14 +37,18 @@ export default function RegistrationScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   title: {
     fontSize: 30,
     color: primaryTextColor,
     fontFamily: "roboto-med",
-    marginTop: 69, //60
   },
   wrap: {
-    padding: 16,
+    paddingTop: 92,
+    paddingBottom: 16,
+    paddingHorizontal: 16,
     alignItems: "center",
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
