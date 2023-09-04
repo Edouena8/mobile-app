@@ -28,7 +28,7 @@ export default function LoginScreen({ navigation }) {
               <Message
                 message="Немає акаунту?"
                 link="Зареєструватися"
-                onNav={() => navigation.navigate("Registration")}
+                onNav={() => navigation.goBack()}
               />
             </View>
           </Background>
