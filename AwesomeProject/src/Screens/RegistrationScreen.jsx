@@ -13,7 +13,7 @@ import { colors } from "../../utils/colors";
 import { Background } from "../components/Images/Background";
 const { primaryTextColor, white } = colors;
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
@@ -27,7 +27,11 @@ export default function RegistrationScreen() {
               <PhotoBox />
               <Text style={styles.title}>Реєстрація</Text>
               <RegForm />
-              <Message message="Вже є акаунт?" link="Увійти" />
+              <Message
+                message="Вже є акаунт?"
+                link="Увійти"
+                onNav={() => navigation.navigate("Login")}
+              />
             </View>
           </Background>
         </View>

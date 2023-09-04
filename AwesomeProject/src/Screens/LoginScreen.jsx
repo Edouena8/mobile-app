@@ -12,7 +12,7 @@ import { colors } from "../../utils/colors";
 import { Background } from "../components/Images/Background";
 const { primaryTextColor, white } = colors;
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
@@ -25,7 +25,11 @@ export default function LoginScreen() {
             <View style={styles.wrap}>
               <Text style={styles.title}>Увійти</Text>
               <LogForm />
-              <Message message="Немає акаунту?" link="Зареєструватися" />
+              <Message
+                message="Немає акаунту?"
+                link="Зареєструватися"
+                onNav={() => navigation.navigate("Registration")}
+              />
             </View>
           </Background>
         </View>

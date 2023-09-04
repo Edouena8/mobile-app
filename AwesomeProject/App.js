@@ -1,3 +1,7 @@
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import {
   ImageBackground,
   Keyboard,
@@ -9,8 +13,10 @@ import {
 import { useFonts } from "expo-font";
 import RegistrationScreen from "./src/Screens/RegistrationScreen";
 import LoginScreen from "./src/Screens/LoginScreen";
+import Home from "./src/Screens/Home";
 
-const image = require("./assets/images/bg-photo.png");
+
+const MainStack = createStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,10 +29,21 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <RegistrationScreen />
-      {/* <LoginScreen /> */}
-    </View>
+    <NavigationContainer>
+      <MainStack.Navigator>
+        <MainStack.Screen name="Registration" component={RegistrationScreen} />
+        <MainStack.Screen name="Login" component={LoginScreen} />
+        <MainStack.Screen
+          name="Home"
+          component={Home}
+          options={{ title: "Start screen" }}
+        />
+      </MainStack.Navigator>
+    </NavigationContainer>
+    // <View style={styles.container}>
+    //   <RegistrationScreen />
+    //   {/* <LoginScreen /> */}
+    // </View>
   );
 }
 
@@ -34,9 +51,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  image: {
-    flex: 1,
-    justifyContent: "flex-end",
-    width: "100%",
-  },
+
 });

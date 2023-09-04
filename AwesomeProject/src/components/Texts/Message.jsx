@@ -2,15 +2,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors } from "../../../utils/colors";
 const { additionalTextColor } = colors;
 
-export const Message = ({ message, link }) => {
+export const Message = ({ message, link, onNav }) => {
   return (
     <View>
-      <TouchableOpacity style={styles.wrap}>
+      <TouchableOpacity style={styles.wrap} onPress={onNav}>
         <Text style={styles.text}>{message}</Text>
 
-        <Text style={ styles.span}>
-          {link}
-        </Text>
+        <Text style={styles.span}>{link}</Text>
       </TouchableOpacity>
     </View>
   );
