@@ -3,7 +3,7 @@ import { StyledTextInput } from "../Inputs/StyledTextInput";
 import { SubmitBtn } from "../Buttons/SubmitBtn";
 import { useState } from "react";
 
-export default function RegForm() {
+export default function RegForm({onNav}) {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +13,7 @@ export default function RegForm() {
     setEmail("");
     setPassword("");
     console.log(`login: ${login}, email: ${email}, password: ${password}`);
+    onNav();
   };
 
   return (

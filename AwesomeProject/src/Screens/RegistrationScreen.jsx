@@ -26,7 +26,7 @@ export default function RegistrationScreen({ navigation }) {
             <View style={styles.wrap}>
               <PhotoBox />
               <Text style={styles.title}>Реєстрація</Text>
-              <RegForm />
+              <RegForm onNav={() => navigation.navigate("BottomNavigator")} />
               <Message
                 message="Вже є акаунт?"
                 link="Увійти"
