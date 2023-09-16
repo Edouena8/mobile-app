@@ -8,5 +8,7 @@ export const colors = {
   userBorder: "#000000",
 
   primaryBg: "#FFFFFF",
-  secondaryBg: "#F6F6F6"
+  secondaryBg: "#F6F6F6",
+
+  iconColor: "#21212180",
 };
