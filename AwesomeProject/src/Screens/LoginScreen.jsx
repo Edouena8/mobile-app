@@ -24,7 +24,7 @@ export default function LoginScreen({ navigation }) {
           <Background>
             <View style={styles.wrap}>
               <Text style={styles.title}>Увійти</Text>
-              <LogForm />
+              <LogForm onNav={() => navigation.navigate("BottomNavigator")} />
               <Message
                 message="Немає акаунту?"
                 link="Зареєструватися"

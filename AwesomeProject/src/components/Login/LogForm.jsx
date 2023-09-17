@@ -3,7 +3,7 @@ import { StyledTextInput } from "../Inputs/StyledTextInput";
 import { SubmitBtn } from "../Buttons/SubmitBtn";
 import { useState } from "react";
 
-export default function LogForm() {
+export default function LogForm({ onNav }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,10 +11,10 @@ export default function LogForm() {
     setEmail("");
     setPassword("");
     console.log(`email: ${email}, password: ${password}`);
+    onNav();
   };
 
   return (
-    
     <View style={styles.formWrap}>
       <StyledTextInput
         style={styles.inputTop}
