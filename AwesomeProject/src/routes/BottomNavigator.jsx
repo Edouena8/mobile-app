@@ -29,7 +29,11 @@ const getRoute = (route) => {
   return {
     justifyContent: "center",
     height: 60,
-    paddingHorizontal: 80,
+    
+    // paddingVertical: 9,
+    paddingHorizontal: 31,
+    borderTopColor: "#e8e8e8",
+    borderTopWidth: 1,
   };
 };
 
@@ -68,30 +72,24 @@ export default function BottomNavigator() {
       <Tab.Screen
         name="CreatePosts"
         component={CreatePostsScreen}
-        options={
-          () => ({
-            tabBarIcon: ({ focused, size }) => (
-              <View style={styles.unionButton}>
-                <AntDesign name="plus" size={size} style={styles.addIcon} />
-              </View>
-            ),
-            tabBarStyle: {
-              display: "none",
-            },
-            headerTitle: () => <Header name="Створити публікацію" />,
-            headerTitleAlign: "center",
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.navigate("Posts")}>
-                <AntDesign
-                  name="arrowleft"
-                  size={24}
-                  style={styles.iconArrow}
-                />
-              </TouchableOpacity>
-            ),
-            unmountOnBlur: true,
-          })
-        }
+        options={() => ({
+          tabBarIcon: ({ focused, size }) => (
+            <View style={styles.unionButton}>
+              <AntDesign name="plus" size={size} style={styles.addIcon} />
+            </View>
+          ),
+          tabBarStyle: {
+            display: "none",
+          },
+          headerTitle: () => <Header name="Створити публікацію" />,
+          headerTitleAlign: "center",
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.navigate("Posts")}>
+              <AntDesign name="arrowleft" size={24} style={styles.iconArrow} />
+            </TouchableOpacity>
+          ),
+          unmountOnBlur: true,
+        })}
       />
       <Tab.Screen
         name="Profile"
@@ -112,6 +110,17 @@ export default function BottomNavigator() {
 }
 
 const styles = StyleSheet.create({
+  menuWrap: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 39,
+    textAlign: "center",
+    paddingVertical: 9,
+    borderTopColor: "#e8e8e8",
+    borderTopWidth: 1,
+  },
   icon: {
     color: iconColor,
   },
